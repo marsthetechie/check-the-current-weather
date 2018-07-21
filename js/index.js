@@ -16,7 +16,6 @@ $(document).ready(function() {
   }
   
   var tempUnit = 'C';
-  var tempInCels;
 
   function showWeather(key) {
     $.getJSON(key, function(response) {
@@ -31,7 +30,7 @@ $(document).ready(function() {
         if (tempUnit == 'C') {
           tempUnit = 'F';
           var tempInFahren = parseInt(tempInCels) * 1.8 + 32;
-        $("#showTemp").html(tempInFahren + "&deg" + tempUnit);
+        $("#showTemp").html(tempInFahren.toFixed(2) + "&deg" + tempUnit);
         } else {
           tempUnit = 'C';
           $("#showTemp").html(tempInCels + "&deg" + tempUnit);
